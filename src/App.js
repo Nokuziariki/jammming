@@ -1,8 +1,9 @@
-import AppSpot from './components/AppSpot/AppSpot'
+import AppSpot from './components/AppSpot/AppSpot';
+import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <AppSpot />
     </div>
   );
