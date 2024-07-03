@@ -1,7 +1,7 @@
 import React from 'react';
 import './AppSpot.css'
 import SearchBar from '../SearchBar/SearchBar'
-import PlayList from '../PlayList/PlayList';
+import PlayList from '../Playlist/Playlist';
 
 function AppSpot() {
     return (
