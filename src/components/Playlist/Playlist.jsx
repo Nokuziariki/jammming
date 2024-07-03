@@ -1,7 +1,7 @@
 import React from 'react';
-import './PlayList.css'
+import './Playlist.css'
 
-function PlayList() {
+function Playlist() {
     return (
         <div>
             <input type="text" />
@@ -11,4 +11,4 @@ function PlayList() {
     )
 }
 
-export default PlayList; 
+export default Playlist; 
