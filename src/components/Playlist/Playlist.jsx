@@ -1,13 +1,29 @@
 import React from 'react';
-import './Playlist.css'
+import TrackList from '../TrackList/TrackList';
+import './Playlist.css';
 
-function Playlist() {
+function Playlist({ playlistName, playlistTracks, onNameChange, onAddTrack }) {
+    const handleNameChange = (event) => {
+        onNameChange(event.target.value);
+    };
+
     return (
         <div className='playlist'>
-            <h2>New Playlist</h2>
-            <button className='playlist-button'>Save to Spotify</button>
+            <input
+                value={playlistName}
+                onChange={handleNameChange}
+                placeholder="Name ur Playlist"
+                style={{textAlign: "center"}}
+            />
+            <TrackList
+                tracks={playlistTracks}
+                onAddTrack={onAddTrack}
+            />
+            <button className='playlist-button'onClick={() => console.log("Save to Spotify clicked")}>
+                Save to Spotify
+            </button>
         </div>
-    )
+    );
 }
 
-export default Playlist; 
+export default Playlist;
