@@ -1,5 +1,37 @@
-.App {
-    width: 100%;
+html, body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}
+
+.title {
+    display: flex;
+}
+
+.coloredtext {
+    color: rgb(58, 69, 228);
+}
+
+.app-search {
+    display: flex;
+    justify-content: center;
+    padding: 5% 0 5% 0;
+}
+
+.app {
     height: 100%;
+    padding: 0 17% 10% 17%;
+    align-items: center;
     background-image: url('../src/jammming-backgorund.jpg');
+}
+
+.app-lists {
+    display: flex;
+    justify-content: space-around;
 }

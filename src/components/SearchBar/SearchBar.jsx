@@ -3,11 +3,9 @@ import './SearchBar.css'
 
 function SearchBar() {
     return (
-        <div>
-            <div>
+        <div className='search-bar'>
                 <input placeholder='Enter a song name' type="text" />
                 <button>Search</button>
-            </div>
         </div>
     )
 }

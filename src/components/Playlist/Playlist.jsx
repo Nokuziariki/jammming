@@ -3,9 +3,9 @@ import './Playlist.css'
 
 function Playlist() {
     return (
-        <div>
+        <div className='playlist'>
             <h2>New Playlist</h2>
-            <button>Save to Spotify</button>
+            <button className='playlist-button'>Save to Spotify</button>
         </div>
     )
 }
