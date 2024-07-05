@@ -3,13 +3,16 @@ import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import Playlist from './components/Playlist/Playlist';
 import SearchResults from './components/SearchResults/SearchResults';
+import { Spotify } from "./utilities/Spotify/Spotify";
 
 function App() {
     const [searchResults, setSearchResults] = useState([]);
     const [playlistName, setPlaylistName] = useState("");
     const [playlistTracks, setPlaylistTracks] = useState([]);
 
-    //  const search = useCallback(() => {}, [])
+    const search = useCallback((term) => {
+    Spotify.search(term).then(setSearchResults);
+    }, []);
 
     const updatePlaylistName = useCallback((name) => {
       setPlaylistName(name)
@@ -35,6 +38,7 @@ function App() {
             <div className='app'>
                 <div className='app-search'>
                     <SearchBar className='searchbar'
+                    onSearch={search}
                     />
                 </div>
                 <div className='app-lists'>
