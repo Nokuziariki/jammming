@@ -1,10 +1,10 @@
-# Info
-
-I am currently still working on the project. The CSS is not ready yet, I just put a base on it to have a starting point. I will fix it after the features are finished.
-
 # The Project
 
 Jammming is a React-based web application that allows users to search for songs using the Spotify API and create their own playlists. This is one of my codecademy projects.
+
+## Info
+
+I am currently still working on the project. The CSS is not ready yet, I just put a base on it to have a starting point. I will fix it after the features are finished.
 
 ## Setup
 
