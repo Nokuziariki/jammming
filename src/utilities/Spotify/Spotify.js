@@ -1,5 +1,5 @@
 const clientId = '901bc34308404734a13ff76c7478b3aa';
-const redirectUri = 'http://localhost:3001/';
+const redirectUri = 'http://localhost:3000/';
 let accessToken = "";
 
 const Spotify = {
@@ -15,6 +15,7 @@ const Spotify = {
             const expiresIn = Number(expiresInUrl[1]);
             window.setTimeout(() => accessToken = '', expiresIn * 1000);
             window.history.pushState('Access Token', null, '/');
+            return accessToken;
         } else {
             const accessUri = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
             window.location = accessUri;

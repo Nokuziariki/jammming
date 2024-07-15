@@ -2,11 +2,15 @@ import React from 'react';
 import TrackList from '../TrackList/TrackList';
 import './SearchResults.css'
  
-function SearchResults({ searchResults }) {
+function SearchResults({ searchResults , onAddTrack, onRemoveTrack}) {
     return (
         <div className='search-results'>
             <h2>Results</h2>
-            <TrackList tracks={searchResults}/>
+            <TrackList
+                tracks={searchResults}
+                onAddTrack={onAddTrack}
+                onRemoveTrack={onRemoveTrack}
+            />
         </div>
     );
 }

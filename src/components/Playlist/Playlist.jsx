@@ -2,7 +2,7 @@ import React from 'react';
 import TrackList from '../TrackList/TrackList';
 import './Playlist.css';
 
-function Playlist({ playlistName, playlistTracks, onNameChange, onAddTrack }) {
+function Playlist({ playlistName, playlistTracks, onNameChange, onAddTrack , onRemoveTrack}) {
     const handleNameChange = (event) => {
         onNameChange(event.target.value);
     };
@@ -18,6 +18,7 @@ function Playlist({ playlistName, playlistTracks, onNameChange, onAddTrack }) {
             <TrackList
                 tracks={playlistTracks}
                 onAddTrack={onAddTrack}
+                onRemoveTrack={onRemoveTrack}
             />
             <button className='playlist-button'onClick={() => console.log("Save to Spotify clicked")}>
                 Save to Spotify

@@ -1,7 +1,7 @@
 import React from 'react';
 import Track from '../Track/Track';
 
-function TrackList({ tracks, onAddTrack }) {
+function TrackList({ tracks, onAddTrack, onRemoveTrack }) {
 
     return (
         <div>
@@ -12,6 +12,7 @@ function TrackList({ tracks, onAddTrack }) {
                     artist={track.artist}
                     album={track.album}
                     onAddTrack={() => onAddTrack(track)}
+                    onRemoveTrack={() => onRemoveTrack(track)}
                 />
             ))}
         </div>

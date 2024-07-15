@@ -11,7 +11,10 @@ function App() {
     const [playlistTracks, setPlaylistTracks] = useState([]);
 
     const search = useCallback((term) => {
-    Spotify.search(term).then(setSearchResults);
+      console.log("Spotify keresés indult");  // Debug log
+        Spotify.search(term).then(results => {
+            setSearchResults(results);
+        });
     }, []);
 
     const updatePlaylistName = useCallback((name) => {
@@ -19,12 +22,14 @@ function App() {
     }, []);
 
     const addTrack = useCallback((track) => {
+      console.log("Dal hozzáadva: ", track.artist, "-", track.name);  // Debug log
       if (!playlistTracks.find(prevTrack => prevTrack.id === track.id)) {
           setPlaylistTracks(prevTracks => [...prevTracks, track]);
       }
     }, [playlistTracks]);
 
     const removeTrack = useCallback((track) => {
+      console.log("Dal törölve: ", track.artist, "-", track.name);  // Debug log
       setPlaylistTracks((prevTracks) => 
         prevTracks.filter((currentTrack) => currentTrack.id !== track.id)
       );
