@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import TrackList from '../TrackList/TrackList';
 import './Playlist.css';
 
-function Playlist({ playlistName, playlistTracks, onNameChange, onAddTrack , onRemoveTrack}) {
-    const handleNameChange = (event) => {
-        onNameChange(event.target.value);
-    };
+const Playlist = (props) => {
+    const handleNameChange = useCallback(
+      (event) => {
+        props.onNameChange(event.target.value);
+      },
+      [props.onNameChange]
+    );
 
     return (
         <div className='playlist'>
             <input
-                value={playlistName}
                 onChange={handleNameChange}
                 placeholder="Name ur Playlist"
+                defaultValue={"New Playlist"}
                 style={{textAlign: "center"}}
             />
             <TrackList
-                tracks={playlistTracks}
-                onAddTrack={onAddTrack}
-                onRemoveTrack={onRemoveTrack}
+                tracks={props.playlistTracks}
+                onAddTrack={props.onAddTrack}
+                onRemoveTrack={props.onRemoveTrack}
             />
-            <button className='playlist-button'onClick={() => console.log("Save to Spotify clicked")}>
+            <button className='playlist-button' onClick={props.onSave}>
                 Save to Spotify
             </button>
         </div>

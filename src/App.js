@@ -21,6 +21,15 @@ function App() {
       setPlaylistName(name)
     }, []);
 
+    const savePlaylistName = useCallback(() => {
+        console.log("Lejátszási lista mentve");  // Debug log
+        const trackURI = playlistTracks.map((track) => track.uri)
+        Spotify.savePlaylistName(playlistName, trackURI).then(() => {
+            setPlaylistName("New Playlist");
+            setPlaylistTracks([]);
+        });
+    }, [playlistName, playlistTracks]);
+
     const addTrack = useCallback((track) => {
       console.log("Dal hozzáadva: ", track.artist, "-", track.name);  // Debug log
       if (!playlistTracks.find(prevTrack => prevTrack.id === track.id)) {
@@ -56,6 +65,7 @@ function App() {
                         playlistTracks={playlistTracks}
                         onNameChange={updatePlaylistName}
                         onRemoveTrack={removeTrack}
+                        onSave = {savePlaylistName}
                     />
                 </div>
             </div>

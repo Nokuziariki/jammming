@@ -25,9 +25,7 @@ const Spotify = {
     search(term){
         const accessToken = Spotify.getAccessToken()
         return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
-            headers: {
-              Authorization: `Bearer ${accessToken}`
-            }
+            headers: { Authorization: `Bearer ${accessToken}` },
           }).then(response => {
             return response.json()
         }).then(jsonResponse => {
@@ -42,10 +40,39 @@ const Spotify = {
                 uri: track.uri
             }))
         })
+    },
+
+    savePlaylistName(name, trackURI){
+        if (!name || !trackURI) {
+            return;
+        }
+
+        let accessToken = Spotify.getAccessToken();
+        const headers = { Authorization: `Bearer ${accessToken}` };
+        let userID = ""
+
+        return fetch(`https://api.spotify.com/v1/me`, {
+            headers: headers, 
+        }).then(response => {
+            return response.json();
+        }).then(jsonResponse => {
+            userID = jsonResponse.id;
+            return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
+                headers: headers,
+                method: 'POST',
+                body: JSON.stringify({ name: name }),
+            }).then(response => {
+                return response.json();
+            }).then(jsonResponse => {
+                const playlistID = jsonResponse.id;
+                return fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`, {
+                    headers: headers,
+                    method: 'POST',
+                    body: JSON.stringify({ uris: trackURI }) 
+                });
+            });
+        });
     }
 };
-
-
-
 
 export { Spotify };
