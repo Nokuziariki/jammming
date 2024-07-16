@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Track({ name, artist, album, onAddTrack, onRemoveTrack}) {
+function Track({ name, artist, album, isRemoval, onAddTrack, onRemoveTrack}) {
 
     const handleAddTrack = (track) => {
         onAddTrack(track);
@@ -13,10 +13,15 @@ function Track({ name, artist, album, onAddTrack, onRemoveTrack}) {
 
     return (
         <div>
-            <h3>{name}</h3>
-            <p>{artist} - {album}</p>
-            <button onClick={handleAddTrack}>+</button>
-            <button onClick={handleRemoveTrack}>-</button>
+            <div className='Track-info'>
+                <h3>{name}</h3>
+                <p>{artist} - {album}</p>
+            </div>
+            {isRemoval ? (
+                <button className='Track-action' onClick={handleRemoveTrack}>-</button>
+            ) : (
+                <button className='Track-action' onClick={handleAddTrack}>+</button>
+            )}
         </div>
     );
 }

@@ -2,12 +2,12 @@ import React, { useCallback } from 'react';
 import TrackList from '../TrackList/TrackList';
 import './Playlist.css';
 
-const Playlist = (props) => {
+const Playlist = ({ onNameChange, playlistTracks, onRemoveTrack, onSave }) => {
     const handleNameChange = useCallback(
       (event) => {
-        props.onNameChange(event.target.value);
+        onNameChange(event.target.value);
       },
-      [props.onNameChange]
+      [onNameChange]
     );
 
     return (
@@ -19,11 +19,11 @@ const Playlist = (props) => {
                 style={{textAlign: "center"}}
             />
             <TrackList
-                tracks={props.playlistTracks}
-                onAddTrack={props.onAddTrack}
-                onRemoveTrack={props.onRemoveTrack}
+                tracks={playlistTracks}
+                onRemoveTrack={onRemoveTrack}
+                isRemoval={true}
             />
-            <button className='playlist-button' onClick={props.onSave}>
+            <button className='playlist-button' onClick={onSave}>
                 Save to Spotify
             </button>
         </div>
