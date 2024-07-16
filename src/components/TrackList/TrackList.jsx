@@ -12,6 +12,7 @@ function TrackList({ tracks, onAddTrack, onRemoveTrack, isRemoval }) {
                     name={track.name}
                     artist={track.artist}
                     album={track.album}
+                    albumArt={track.albumArt}
                     onAddTrack={() => onAddTrack(track)}
                     onRemoveTrack={() => onRemoveTrack(track)}
                     isRemoval={isRemoval}

@@ -3,11 +3,11 @@ import TrackList from '../TrackList/TrackList';
 import './Playlist.css';
 
 const Playlist = ({ onNameChange, playlistTracks, onRemoveTrack, onSave }) => {
+    
     const handleNameChange = useCallback(
-      (event) => {
-        onNameChange(event.target.value);
-      },
-      [onNameChange]
+        (event) => {
+            onNameChange(event.target.value);
+        }, [onNameChange]
     );
 
     return (
@@ -17,6 +17,7 @@ const Playlist = ({ onNameChange, playlistTracks, onRemoveTrack, onSave }) => {
                 placeholder="Name your playlist"
                 defaultValue={"New Playlist"}
                 style={{textAlign: "center"}}
+                id='playlist-name'
             />
             <TrackList
                 tracks={playlistTracks}

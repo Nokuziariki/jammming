@@ -3,6 +3,12 @@ import './SearchBar.css'
 
 const SearchBar = ({ onSearch }) => {
     const [term, setTerm] = useState("");
+
+    const search = useCallback(() => {
+      console.log("Keresés indult a kifejezéssel: ", term);  // Debug log
+      onSearch(term);
+      setTerm("");
+    }, [onSearch, term]);
   
     const handleTermChange = useCallback((event) => {
       console.log("Input változott: ", event.target.value);  // Debug log
@@ -10,26 +16,20 @@ const SearchBar = ({ onSearch }) => {
     }, []);
   
     const handleSearch = (e) => {
-      if (e.key === "Enter") {
+      if (e.key === "Enter" || e.key === 'Go' || e.key === 'Search') {
         console.log("Enter billentyű lenyomva");  // Debug log
-        search();
+        onSearch(term);
       }
     };
-
-    const search = useCallback(() => {
-      console.log("Keresés indult a kifejezéssel: ", term);  // Debug log
-      onSearch(term);
-      setTerm("");
-    }, [onSearch, term]);
 
     return (
         <div className='search-bar'>
                 <input
                     placeholder='Enter a song name'
                     style={{textAlign: "center"}}
-                    type="text"
                     onChange={handleTermChange}
                     onKeyDown={handleSearch}
+                    id='search-term'
                     value={term}
                 />
                 <button onClick={search}>Search</button>

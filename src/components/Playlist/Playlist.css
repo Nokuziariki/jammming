@@ -43,6 +43,7 @@
     border: 0;
     font-weight: bold;
     width: 150px;
+    cursor: pointer;
 }
 
 .playlist button:hover {
