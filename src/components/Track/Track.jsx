@@ -1,5 +1,8 @@
 import React from 'react';
 import "./Track.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 function Track({ name, artist, album, albumArt, isRemoval, onAddTrack, onRemoveTrack}) {
 
@@ -21,9 +24,9 @@ function Track({ name, artist, album, albumArt, isRemoval, onAddTrack, onRemoveT
                 <p>{artist} | {album}</p>
             </div>
             {isRemoval ? (
-                <button className='Track-action' onClick={handleRemoveTrack}>-</button>
+                <button className='Track-action' onClick={handleRemoveTrack}><FontAwesomeIcon icon={faCircleLeft} /></button>
             ) : (
-                <button className='Track-action' onClick={handleAddTrack}>+</button>
+                <button className='Track-action' onClick={handleAddTrack}><FontAwesomeIcon icon={faCircleRight} /></button>
             )}
         </div>
     );
