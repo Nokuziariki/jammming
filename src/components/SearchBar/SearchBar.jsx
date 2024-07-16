@@ -9,18 +9,18 @@ const SearchBar = ({ onSearch }) => {
       setTerm(event.target.value);
     }, []);
   
-    const search = useCallback(() => {
-      console.log("Keresés indult a kifejezéssel: ", term);  // Debug log
-      onSearch(term);
-      setTerm("");
-    }, [onSearch, term]);
-  
     const handleSearch = (e) => {
       if (e.key === "Enter") {
         console.log("Enter billentyű lenyomva");  // Debug log
         search();
       }
     };
+
+    const search = useCallback(() => {
+      console.log("Keresés indult a kifejezéssel: ", term);  // Debug log
+      onSearch(term);
+      setTerm("");
+    }, [onSearch, term]);
 
     return (
         <div className='search-bar'>
