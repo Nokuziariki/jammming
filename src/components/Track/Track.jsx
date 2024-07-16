@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Track.css";
 
 function Track({ name, artist, album, isRemoval, onAddTrack, onRemoveTrack}) {
 
@@ -12,7 +13,7 @@ function Track({ name, artist, album, isRemoval, onAddTrack, onRemoveTrack}) {
     };
 
     return (
-        <div>
+        <div className='Track'>
             <div className='Track-info'>
                 <h3>{name}</h3>
                 <p>{artist} - {album}</p>

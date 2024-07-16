@@ -46,9 +46,7 @@ function App() {
 
     return (
         <div>
-            <div className='header'>
-                <h1 className='title'>Ja<span className='coloredtext'>mmm</span>ing</h1>
-            </div>
+            <h1 className='title'>Ja<span className='coloredtext'>mmm</span>ing</h1>
             <div className='app'>
                 <div className='app-search'>
                     <SearchBar className='searchbar'

@@ -3,15 +3,10 @@ html, body {
     color: white;
 }
 
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70px;
-}
-
-.title {
-    display: flex;
+h1 {
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
 }
 
 .coloredtext {

@@ -14,7 +14,7 @@ const Playlist = ({ onNameChange, playlistTracks, onRemoveTrack, onSave }) => {
         <div className='playlist'>
             <input
                 onChange={handleNameChange}
-                placeholder="Name ur Playlist"
+                placeholder="Name your playlist"
                 defaultValue={"New Playlist"}
                 style={{textAlign: "center"}}
             />
