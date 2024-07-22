@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from "react";
 import './App.css';
-import SearchBar from './components/SearchBar/SearchBar';
-import Playlist from './components/Playlist/Playlist';
-import SearchResults from './components/SearchResults/SearchResults';
-import { Spotify } from "./utilities/Spotify/Spotify";
+import SearchBar from '../SearchBar/SearchBar';
+import Playlist from '../Playlist/Playlist';
+import SearchResults from '../SearchResults/SearchResults';
+import { Spotify } from "../../utilities/Spotify/Spotify";
 
 function App() {
     const [searchResults, setSearchResults] = useState([]);

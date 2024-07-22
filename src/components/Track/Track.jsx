@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { faCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
-function Track({ name, artist, album, albumArt, isRemoval, onAddTrack, onRemoveTrack}) {
+function Track({ name, artist, album, albumArt, isRemoval, onAddTrack, onRemoveTrack }) {
 
     const handleAddTrack = (track) => {
         onAddTrack(track);
